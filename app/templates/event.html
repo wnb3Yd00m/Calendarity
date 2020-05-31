@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href = "{{url_for('static', filename = 'style.css')}}" rel="stylesheet">
+    <title>Event</title>
+</head>
+<body>
+    <form method="POST">
+        {{form.hidden_tag()}}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name }}<br>
+        </p>
+        <p>
+            {{ form.start_time.label }}<br>
+            {{ form.start_time }}<br>
+        </p>
+        <p>
+            {{ form.end_time.label }}<br>
+            {{ form.end_time }}<br>
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description }}<br>
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+</body>
+</html>
