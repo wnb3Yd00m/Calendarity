@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table cellspacing="2" border="1" cellpadding="5" width="800px">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Start time</td>
+            <td>End time</td>
+            <td>Description</td>
+        </tr>
+    {% for event in events%}
+        <tr>
+            <td>{{event.id}}</td>
+            <td>{{event.name}}</td>
+            <td>{{event.start_time}}</td>
+            <td>{{event.end_time}}</td>
+            <td>{{event.description}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
