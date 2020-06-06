@@ -1,21 +1,20 @@
 pipeline {
   agent { 
-    docker { 
-      image 'python:3.7.4' 
-    } 
+    label 'master'
+  }
+  triggers { 
+    pollSCM('* * * * *') 
+  }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+    timestamps()
   }
   stages {
-    stage('build') {
+    stage("create docker image") {
       steps {
-        echo "Building application..."
-        sh 'pip3 install -r requirements.txt'
+          echo " ============== start building image =================="
+          sh 'docker build -t calendarity:latest . '
       }
-    }
-    stage('test') {
-      steps {
-        echo 'Testing...'
-        sh 'python3 tests.py'
-      }   
     }
   }
 }
