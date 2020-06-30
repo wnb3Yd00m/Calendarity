@@ -1,27 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form method="POST">
-        {{form.hidden_tag()}}
-        <p>
-            {{ form.name.label }}<br>
-            {{ form.name }}<br>
-        </p>
-        <p>
-            {{ form.start_time.label }}<br>
-            {{ form.start_time }}<br>
-        </p>
-        <p>
-            {{ form.end_time.label }}<br>
-            {{ form.end_time }}<br>
-        </p>
-        <p>
-            {{ form.description.label }}<br>
-            {{ form.description }}<br>
-        </p>
-        <p>
-            {{ form.submit() }}
-        </p>
-    </form>
+    <div id="form-container"> 
+        <div id="form-content">
+            <form method="POST">
+                {{form.hidden_tag()}}
+                <p>
+                    {{ form.name.label }}<br>
+                    {{ form.name(id="med-field") }}<br>
+                </p>
+                <p>
+                    {{ form.start_time.label }}<br>
+                    {{ form.start_date(id="low-field") }}
+                    {{ form.start_time(id="low-field") }}
+                    <br>
+                </p>
+                <p>
+                    {{ form.end_time.label }}<br>
+                    {{ form.end_date(id="low-field") }}
+                    {{ form.end_time(id="low-field") }}
+                    <br>
+                </p>
+                <p>
+                    {{ form.description.label }}<br>
+                    {{ form.description(id="big-field", rows='10') }}<br>
+                </p>
+                <p>
+                    {{ form.submit(id="submit-btn") }}
+                </p>
+            </form>
+        </div>
+    </div>
 {% endblock %}
 

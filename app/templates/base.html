@@ -1,12 +1,20 @@
 <html>
     <head>
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
       <title>Calendarity</title>
     </head>
     <body>
-        <div>Home page: <a href="/">Home</a></div>
-        <div>Make event: <a href="/make_event">Home</a></div>
-        <div>Show events: <a href="/events">Home</a></div>
+      <div id="header">
+        <table id="header-table" cellpadding="5" width="80%">
+          <tr align="center">
+            <td id="header-td"><div><a href="/">Домашняя страница</a></div></td>
+            <td id="header-td"><div><a href="/make_event">Добавить</a></div></td>
+            <td id="header-td"><div><a href="/events">Календарь</a></div></td>
+            <td id="header-td"><div><a href="/statistic">Статистика</a></div></td>
+          </tr>
+        </table>
         <hr>
+      </div>
         {% block content %}
         {% endblock %}
     </body>
